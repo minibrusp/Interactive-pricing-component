@@ -20,8 +20,8 @@ If the visitor switches the toggle to yearly billing, a 25% discount should be a
 
 ### Links
 
--   Solution URL: [here](link)
--   Live Site URL: [here](link)
+-   Solution URL: [here](https://www.frontendmentor.io/solutions/interactive-pricing-component-html-sass-js-gsap-rk3tiBD45)
+-   Live Site URL: [here](https://interactive-pricing-component-sepia.vercel.app/)
 
 ### Built with
 

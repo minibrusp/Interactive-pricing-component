@@ -14,12 +14,21 @@ header {
       color: color.$DarkDesaturatedBlue;
       font-size: 1.4666666666666666rem;
       margin: 1rem 0 0 0;
+
+      @media screen and (min-width: 650px) {
+         font-size: 2rem;
+      }
    }
 
    p {
       font-size: 0.9333333333333333rem;
       line-height: 1.7;
       margin-top: 7px;
-      width: min(60%, 100%);
+      width: 60%;
+
+      @media screen and (min-width: 650px) {
+         width: 100%;
+         font-size: 1rem;
+      }
    }
 }
