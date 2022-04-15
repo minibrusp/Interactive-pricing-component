@@ -28,7 +28,7 @@ body {
 main {
   padding: 3.1rem 1.5rem 2rem 1.5rem;
   margin: 0 auto;
-  width: min(100%, 640px);
+  width: min(100%, 580px);
 }
 @media screen and (max-width: 320px) {
   main {
