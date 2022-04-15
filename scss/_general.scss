@@ -1,0 +1,46 @@
+@use './utils/colors' as color;
+
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+
+html {
+   font-size: 15px;
+}
+
+body {
+   padding: 0;
+   margin: 0;
+   font-size: 1rem;
+   color: color.$GrayishBlue;
+   background-color: color.$VeryPaleBlue;
+   font-family: 'Manrope', sans-serif;
+   position: relative;
+   background-image: url(../images/bg-pattern.svg);
+   background-repeat: no-repeat;
+   background-position-y: -3rem;
+
+   // min height 800px centers 
+   @media screen and (min-height: 800px) {
+      background-size: 100vw 65vh;
+   }
+}
+
+main {
+   // padding: 3.1rem 1.5rem;
+   padding: 3.1rem 1.5rem 2rem 1.5rem;
+   margin: 0 auto;
+   width: min(100%, 540px); 
+
+   @media screen and (max-width: 320px) {
+      padding: 3.1rem 1rem 2rem 1rem;
+   }
+
+   // min height 800px centers 
+   @media screen and (min-height: 800px) {
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 95vh;
+   }
+}

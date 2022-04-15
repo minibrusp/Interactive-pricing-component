@@ -1,0 +1,25 @@
+@use './utils/colors' as color;
+@use './utils/mixins' as mix;
+
+header {
+   text-align: center;
+   @include mix.imgBgNoRepeatCenter('../images/pattern-circles.svg');
+   background-position: center;
+   background-repeat: no-repeat;
+   height: 11rem;
+   @include mix.flexCenter(column);
+   margin-bottom: 20px;
+
+   h1 {
+      color: color.$DarkDesaturatedBlue;
+      font-size: 1.4666666666666666rem;
+      margin: 1rem 0 0 0;
+   }
+
+   p {
+      font-size: 0.9333333333333333rem;
+      line-height: 1.7;
+      margin-top: 7px;
+      width: min(60%, 100%);
+   }
+}

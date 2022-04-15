@@ -1,0 +1,286 @@
+@use './utils/colors' as color;
+@use './utils/mixins' as mix;
+
+form {
+   background-color: color.$White;
+   text-align: center;
+   box-shadow: 0 0 1.5rem rgb(100 100 100 / 10%);
+   border-radius: 0.5rem;
+
+   .top, .bot {
+      padding: 1.5rem 1.3rem;
+
+      @media screen and (max-width: 320px) {
+         padding: 1.5rem 1rem;
+      }
+
+      @media screen and (min-width: 650px) {
+         padding: 2rem;
+      }
+   }
+
+   .top {
+      border-bottom: 1px solid color.$LightGrayishBlue1;
+
+      @media screen and (min-width: 650px) {
+         display: grid;
+         grid-template-areas: "views price"
+                              "range range"
+                              "options options";
+         grid-gap: 2rem;
+      }
+   }
+
+   h2 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 2.3rem;
+
+      @media screen and (min-width: 650px) {
+         margin: 0;
+         grid-area: views;
+         align-self: center;
+         justify-self: start;
+         font-size: 0.9rem;
+      }
+   }
+
+   // slider or range
+   .price-range {
+      margin-bottom: 1.7rem;
+      appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 1rem;
+      background: linear-gradient(90deg, color.$SoftCyan 50%, color.$LightGrayishBlue1 50%);
+      transition: background .6s;
+
+      @media screen and (min-width: 650px) {
+         margin: 1rem auto;
+         grid-area: range;  
+      }
+
+      &:focus-visible {
+         outline: none;
+
+         &::-webkit-slider-thumb {
+            @include mix.sliderThumbBoxShadow;
+            background-color: color.$StrongCyan2;
+            transition: background-color .6s, box-shadow .6s;
+         }
+
+         &::-moz-range-thumb {
+            @include mix.sliderThumbBoxShadow;
+            background-color: color.$StrongCyan2;
+            transition: background-color .6s, box-shadow .6s;
+         }
+
+      }
+
+      // chrome slider thumb
+      &::-webkit-slider-thumb {
+         -webkit-appearance: none;
+         appearance: none;
+         height: 40px;
+         width: 40px;
+         border-radius: 50%;
+         background-color: color.$StrongCyan;
+         @include mix.imgBgNoRepeatCenter('../images/icon-slider.svg');
+         cursor: pointer;
+         transition: background-color .6s, box-shadow .6s;
+
+         &:hover, &:active {
+            @include mix.sliderThumbBoxShadow;
+         }
+
+         &:hover {
+            background-color: color.$StrongCyan3;
+         }
+
+         &:active {
+            background-color: color.$StrongCyan2;
+            cursor: grabbing;
+         }
+      }
+
+      //mozilla firefox slider thumb
+      &::-moz-range-thumb {
+         border: none;
+         height: 40px;
+         width: 40px;
+         border-radius: 50%;
+         background-color: color.$StrongCyan;
+         @include mix.imgBgNoRepeatCenter('../images/icon-slider.svg');
+         cursor: pointer;
+         transition: background-color .6s;
+
+         &:hover, &:active {
+            box-shadow: 0 12px 10px 5px  color.$StrongCyan4;
+         }
+
+         &:hover {
+            background-color: color.$StrongCyan3;
+         }
+
+         &:active {
+            background-color: color.$StrongCyan2;
+            cursor: grabbing;
+         }
+      }
+   }
+
+   // price Pragraph
+   .price {
+      font-size: 0.9333333333333333rem;
+      @include mix.flexCenter(row);
+      gap: 8px;
+      margin-bottom: 1.7rem;
+
+      @media screen and (min-width: 650px) {
+         margin: 0;
+         grid-area: price;
+         align-self: center;
+         justify-self: end;  
+         font-size: 1.0666666666666667rem;
+      }
+
+      .price-num {
+         font-size: 2.1rem;
+         color: color.$DarkDesaturatedBlue;
+         font-weight: 800;
+
+         @media screen and (min-width: 650px) {
+            font-size: 2.7rem;
+         }
+      }
+   }
+
+   // subscription options
+   .subs-option {
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 5px;
+
+      @media screen and (min-width: 650px) {
+         margin: 0;
+         grid-area: options;
+         align-self: center;
+         justify-self: end;  
+      }
+
+
+      // toggler
+      &__toggler {
+         appearance: none;
+         margin: 10px;
+         height: 22px;
+         width: 41px;
+         background-color: color.$LightGrayishBlue2;
+         border-radius: 50px;
+         cursor: pointer;
+         position: relative;
+         transition: background-color .6s;
+         min-width: 41px;
+
+         &:hover {
+            background-color: color.$StrongCyan3;
+         }
+
+         &::before {
+            content: "";
+            background-color: color.$White;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            transition: background-color .6s, left .6s;
+         }
+
+         // toggler : checked
+         &:checked {
+            background-color: color.$StrongCyan3;
+            transition: background-color .6s, left .6s;
+
+            &::before {
+               left: 23px;
+            }
+         }
+      }
+
+      //discount num
+      &__discount {
+         font-weight: 800;
+         font-size: 10px;
+         color: color.$LightRed;
+         padding: 2px 7px;
+         background-color: color.$LightGrayishRed;
+         border-radius: 20px;
+         margin-left: 5px;
+      }
+
+      &__discount__text {
+         display: none;
+
+         @media screen and (min-width:650px) {
+            display: unset;
+         }
+      }
+   }
+
+   // bottom part
+
+   .bot {
+      
+      @media screen and (min-width:650px) {
+         display: flex;
+         align-items: center;   
+         justify-content: space-between;
+      }
+   }
+
+   ul {
+      list-style-image: url(../images/icon-check.svg);
+      @include mix.flexCenter(column);
+      line-height: 2.2;
+      padding: 0;
+      font-size: 0.8rem;
+      margin: 0;
+      margin-bottom: 1.7rem;
+
+      @media screen and (min-width:650px) {
+         align-items: flex-start;
+         margin: 0 0 0 1rem;  
+      }
+
+      li {
+         padding-left: 1rem;
+      }
+   }
+
+   button {
+      color: color.$PaleBlue;
+      background-color: color.$DarkDesaturatedBlue;
+      border: none;
+      padding: .8rem 2.8rem;
+      cursor: pointer;
+      font-family: "Manrope", sans-serif;
+      border-radius: 50px;
+      font-size: .8rem;
+      transition: .6s color;
+      margin-bottom: 0.7rem;
+
+      @media screen and (min-width:650px) {
+         margin: 0;  
+      }
+
+      &:hover {
+         color: color.$White;
+      }
+   }
+}

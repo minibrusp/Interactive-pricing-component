@@ -1,0 +1,24 @@
+@use './colors' as color;
+
+@mixin flexCenter($direction) {
+   display: flex;
+   flex-direction: $direction;
+   justify-content: center;
+   align-items: center;
+}
+
+@mixin fontFace($weight, $color) {
+   font-family: 'Manrope', sans-serif;
+   color: $color;
+   font-weight: $weight;
+}
+
+@mixin imgBgNoRepeatCenter($url) {
+   background-image: url($url);
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+@mixin sliderThumbBoxShadow() {
+   box-shadow: 0px 15px 12px 5px  color.$StrongCyan4;
+}

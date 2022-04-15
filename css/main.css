@@ -1,0 +1,346 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 15px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: hsl(225deg, 20%, 60%);
+  background-color: hsl(230deg, 100%, 99%);
+  font-family: "Manrope", sans-serif;
+  position: relative;
+  background-image: url(../images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-position-y: -3rem;
+}
+@media screen and (min-height: 800px) {
+  body {
+    background-size: 100vw 65vh;
+  }
+}
+
+main {
+  padding: 3.1rem 1.5rem 2rem 1.5rem;
+  margin: 0 auto;
+  width: min(100%, 540px);
+}
+@media screen and (max-width: 320px) {
+  main {
+    padding: 3.1rem 1rem 2rem 1rem;
+  }
+}
+@media screen and (min-height: 800px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 95vh;
+  }
+}
+
+header {
+  text-align: center;
+  background-image: url("../images/pattern-circles.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+header h1 {
+  color: hsl(227deg, 35%, 25%);
+  font-size: 1.4666666667rem;
+  margin: 1rem 0 0 0;
+}
+header p {
+  font-size: 0.9333333333rem;
+  line-height: 1.7;
+  margin-top: 7px;
+  width: 60%;
+}
+
+form {
+  background-color: hsl(0deg, 0%, 100%);
+  text-align: center;
+  box-shadow: 0 0 1.5rem rgba(100, 100, 100, 0.1);
+  border-radius: 0.5rem;
+}
+form .top, form .bot {
+  padding: 1.5rem 1.3rem;
+}
+@media screen and (max-width: 320px) {
+  form .top, form .bot {
+    padding: 1.5rem 1rem;
+  }
+}
+@media screen and (min-width: 650px) {
+  form .top, form .bot {
+    padding: 2rem;
+  }
+}
+form .top {
+  border-bottom: 1px solid hsl(224deg, 65%, 95%);
+}
+@media screen and (min-width: 650px) {
+  form .top {
+    display: grid;
+    grid-template-areas: "views price" "range range" "options options";
+    grid-gap: 2rem;
+  }
+}
+form h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2.3rem;
+}
+@media screen and (min-width: 650px) {
+  form h2 {
+    margin: 0;
+    grid-area: views;
+    align-self: center;
+    justify-self: start;
+    font-size: 0.9rem;
+  }
+}
+form .price-range {
+  margin-bottom: 1.7rem;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, hsl(174deg, 77%, 80%) 50%, hsl(224deg, 65%, 95%) 50%);
+  transition: background 0.6s;
+}
+@media screen and (min-width: 650px) {
+  form .price-range {
+    margin: 1rem auto;
+    grid-area: range;
+  }
+}
+form .price-range:focus-visible {
+  outline: none;
+}
+form .price-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0px 15px 12px 5px hsla(174deg, 100%, 73%, 0.6);
+  background-color: hsl(174deg, 89%, 37%);
+  transition: background-color 0.6s, box-shadow 0.6s;
+}
+form .price-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0px 15px 12px 5px hsla(174deg, 100%, 73%, 0.6);
+  background-color: hsl(174deg, 89%, 37%);
+  transition: background-color 0.6s, box-shadow 0.6s;
+}
+form .price-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: hsl(174deg, 86%, 45%);
+  background-image: url("../images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-color 0.6s, box-shadow 0.6s;
+}
+form .price-range::-webkit-slider-thumb:hover, form .price-range::-webkit-slider-thumb:active {
+  box-shadow: 0px 15px 12px 5px hsla(174deg, 100%, 73%, 0.6);
+}
+form .price-range::-webkit-slider-thumb:hover {
+  background-color: hsl(174deg, 72%, 69%);
+}
+form .price-range::-webkit-slider-thumb:active {
+  background-color: hsl(174deg, 89%, 37%);
+  cursor: grabbing;
+}
+form .price-range::-moz-range-thumb {
+  border: none;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: hsl(174deg, 86%, 45%);
+  background-image: url("../images/icon-slider.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: background-color 0.6s;
+}
+form .price-range::-moz-range-thumb:hover, form .price-range::-moz-range-thumb:active {
+  box-shadow: 0 12px 10px 5px hsla(174deg, 100%, 73%, 0.6);
+}
+form .price-range::-moz-range-thumb:hover {
+  background-color: hsl(174deg, 72%, 69%);
+}
+form .price-range::-moz-range-thumb:active {
+  background-color: hsl(174deg, 89%, 37%);
+  cursor: grabbing;
+}
+form .price {
+  font-size: 0.9333333333rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.7rem;
+}
+@media screen and (min-width: 650px) {
+  form .price {
+    margin: 0;
+    grid-area: price;
+    align-self: center;
+    justify-self: end;
+    font-size: 1.0666666667rem;
+  }
+}
+form .price .price-num {
+  font-size: 2.1rem;
+  color: hsl(227deg, 35%, 25%);
+  font-weight: 800;
+}
+@media screen and (min-width: 650px) {
+  form .price .price-num {
+    font-size: 2.7rem;
+  }
+}
+form .subs-option {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 650px) {
+  form .subs-option {
+    margin: 0;
+    grid-area: options;
+    align-self: center;
+    justify-self: end;
+  }
+}
+form .subs-option__toggler {
+  appearance: none;
+  margin: 10px;
+  height: 22px;
+  width: 41px;
+  background-color: hsl(223deg, 50%, 87%);
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.6s;
+  min-width: 41px;
+}
+form .subs-option__toggler:hover {
+  background-color: hsl(174deg, 72%, 69%);
+}
+form .subs-option__toggler::before {
+  content: "";
+  background-color: hsl(0deg, 0%, 100%);
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: background-color 0.6s, left 0.6s;
+}
+form .subs-option__toggler:checked {
+  background-color: hsl(174deg, 72%, 69%);
+  transition: background-color 0.6s, left 0.6s;
+}
+form .subs-option__toggler:checked::before {
+  left: 23px;
+}
+form .subs-option__discount {
+  font-weight: 800;
+  font-size: 10px;
+  color: hsl(15deg, 100%, 70%);
+  padding: 2px 7px;
+  background-color: hsl(14deg, 92%, 95%);
+  border-radius: 20px;
+  margin-left: 5px;
+}
+form .subs-option__discount__text {
+  display: none;
+}
+@media screen and (min-width: 650px) {
+  form .subs-option__discount__text {
+    display: unset;
+  }
+}
+@media screen and (min-width: 650px) {
+  form .bot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+form ul {
+  list-style-image: url(../images/icon-check.svg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 2.2;
+  padding: 0;
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 1.7rem;
+}
+@media screen and (min-width: 650px) {
+  form ul {
+    align-items: flex-start;
+    margin: 0 0 0 1rem;
+  }
+}
+form ul li {
+  padding-left: 1rem;
+}
+form button {
+  color: hsl(226deg, 100%, 87%);
+  background-color: hsl(227deg, 35%, 25%);
+  border: none;
+  padding: 0.8rem 2.8rem;
+  cursor: pointer;
+  font-family: "Manrope", sans-serif;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  transition: 0.6s color;
+  margin-bottom: 0.7rem;
+}
+@media screen and (min-width: 650px) {
+  form button {
+    margin: 0;
+  }
+}
+form button:hover {
+  color: hsl(0deg, 0%, 100%);
+}
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+}
+footer a {
+  color: hsl(227deg, 35%, 25%);
+  text-decoration: none;
+  transition: color 0.6s;
+}
+footer a:hover {
+  color: hsl(174deg, 89%, 37%);
+}
+
+/*# sourceMappingURL=main.css.map */

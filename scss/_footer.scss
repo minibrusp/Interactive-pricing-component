@@ -1,0 +1,16 @@
+@use './utils/colors' as color;
+
+footer {
+   text-align: center;
+   font-size: 0.8rem;
+
+   a {
+      color: color.$DarkDesaturatedBlue;
+      text-decoration: none;
+      transition: color .6s;
+
+      &:hover {
+         color: color.$StrongCyan2;
+      }
+   }
+}
